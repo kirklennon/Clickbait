@@ -12,6 +12,7 @@ try:
 	article_id = row[1]
 except:
 	print('All urls checked')
+	quit()
 print('Requesting: ', url)
 try:
 	page = requests.get(url)
@@ -20,10 +21,13 @@ except:
 	print('Failure to download/parse page')
 
 terms = ['Apple', 'iPhone', 'iPad', 'AirPods']
+skip = ['Motley Fool']
 counter = 0
 paragraphs = soup.find_all('p')
 for p in paragraphs:	
 	if len(p.text.strip()) < 80:
+		continue
+	if any (x in p.text for x in skip):
 		continue
 	if not any (x in p.text for x in terms):
 		continue
