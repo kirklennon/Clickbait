@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% block title %}<title>Clickbait Generator</title>{% endblock %}
-  <meta charset="utf-8">
+  <title>Apple Clickbait Generator </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<style>
+
+body {
+	font-family: "Georgia", serif;
+	font-size: 16px;
+	background-color: #efefef;
+	color: #333;}
+h1 {
+	font-size: 3.5rem;}
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%; }
+main, header {
+	width: 55em;}
+
+</style>
 
 </head>
 <body>
-  <div class="container-fluid">
+  
+<div id="wrapper">
+<header><h1>Apple Clickbait Generator Version 2</h1></header>
+<main>
+
+
     {% block content %}{% endblock %}
-  </div>
+</main>
+</div>
 </body>
 </html>
