@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Apple Clickbait Generator Version 2</h1>
+  <p>This one is still very much a work in progress.</p>
+  <p>I have collected the following real clickbait content:</p>
+  <ul>
+    <li><strong>Paragraphs:</strong> {{ num_para }}</li>
+    <li><strong>Source Articles:</strong> {{ num_source }}</li>
+  </ul>
+ <h3>A randomly generated article:</h3>
+  {% if paragraph_list %}
+
+    {% for para in paragraph_list %}
+      <p>{{ para.text }}</p>
+    {% endfor %}
+
+  {% else %}
+    <p>No paragraphs were found</p>
+  {% endif %}
+
+{% endblock %}
