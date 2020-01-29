@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Apple Clickbait Generator Version 2</title>
+
+<style>
+
+body {
+	font-family: monospace;
+	font-size: 16px;
+	background-color: #efefef;
+	color: #333;}
+header {
+	width: 55rem;
+	background-color: #eee;}
+header h1 {
+	font-size: 3.5rem;}
+#wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%; }
+main {
+	width: 55em;}
+
+</style>
+
+</head>
+<body>
+
+<div id="wrapper">
+<header><h1>Apple Clickbait Generator Version 2</h1></header>
+<main>
+
+<div id="myData"></div>
+
+<script>
+
+fetch('https://api.lennon.dev/json')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    appendData(data);
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
+  
+function appendData(data) {
+  var mainContainer = document.getElementById("myData");
+  for (var i = 0; i < data.length; i++) {
+    var p = document.createElement("p");
+    p.innerHTML = data[i];
+    mainContainer.appendChild(p);
+  }
+}
+
+
+</script>
+
+</main>
+</wrapper>
+</body>
+</html>
