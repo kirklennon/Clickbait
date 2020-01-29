@@ -1,1 +1,3 @@
 *.sqlite3
+rnn/
+.DS_Store
