@@ -11,8 +11,7 @@ A second helper script pulls new URLs from the database, requests the article it
 
 ## Putting it all together
 
-This part isn't written yet but upon request, paragraphs are pseudo-randomly (limited to one paragraph per source article) assembled into a new article.
+The Django app is fairly simple and simply queries the database for ten random paragraphs. One view returns it as a [pre-generated HTML file](https://api.lennon.dev), along with some basic statistics about the database, while [another view returns a JSON](https://api.lennon.dev/json) list. This can be iterated through with some vanilla JavaScript as provided for on this [reference implementation page](https://lennon.dev/reader.html).
 
-## TBD
 
-I haven't decided yet what to do about titles. I may manually assemble a format for them and randomly fill in the blanks.
+
