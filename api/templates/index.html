@@ -1,6 +1,13 @@
 {% extends "base_generic.html" %}
 
 {% block content %}
+<p>Would you like some Lorem ipsum? Would you like it to be created by mashing 
+together paragraphs taken at random from mediocre tech and finance articles? 
+You&rsquo;ve come to the right place. You can view generated output below or 
+use it to create your own articles by accessing this <a href="json">JSON 
+endpoint</a>. This can be iterated through with some vanilla JavaScript as provided for on this <a href="https://lennon.dev/reader.html">reference 
+implementation</a> page. <a href="https://github.com/kirklennon/Clickbait">The 
+code for this project is on GitHub</a>.
   <p>I have collected the following real clickbait content:</p>
   <ul>
     <li><strong>Paragraphs:</strong> {{ num_para }}</li>
@@ -16,5 +23,4 @@
   {% else %}
     <p>No paragraphs were found</p>
   {% endif %}
-
 {% endblock %}
