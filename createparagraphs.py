@@ -9,24 +9,24 @@ while True:
 	cur.execute('SELECT url, id FROM api_source WHERE visited=0 LIMIT 1')
 	row = cur.fetchone()
 	if row is None:
-		print('All urls checked')
+#		print('All urls checked')
 		break
 	else:
 		url = row[0]
 		article_id = row[1]
-	print('Requesting: ', url)
+#	print('Requesting: ', url)
 	try:
 		page = requests.get(url)
 		soup = BeautifulSoup(page.content, 'html.parser')
 	except:
-		print('Failure to download/parse page')
+#		print('Failure to download/parse page')
 
-	terms = ['Apple', 'iPhone', 'iPad', 'AirPods', 'MacBook']
-	skip = ['motley fool', 'macrumors', 'giveaway']
+	terms = ['Apple', 'iPhone', 'iPad', 'AirPods', 'MacBook', 'Mac Pro', 'iMac']
+	skip = ['motley fool', 'macrumors', 'giveaway', 'NASDAQ']
 	counter = 0
 	paragraphs = soup.find_all('p')
 	for p in paragraphs:	
-		if len(p.text.strip()) < 80:
+		if len(p.text.strip()) < 120:
 			continue
 		if any (x in p.text.lower() for x in skip):
 			continue
@@ -35,7 +35,7 @@ while True:
 		cur.execute('INSERT INTO api_paragraph (text, source_id) VALUES ( ?, ? )', ( p.text.strip(), article_id ) )
 		counter += 1
 
-	print('Added', counter, 'paragraphs!')
+#	print('Added', counter, 'paragraphs!')
 	cur.execute('UPDATE api_source SET visited=1 WHERE id=?', (article_id, ) )
 	
 conn.commit()
