@@ -2,4 +2,5 @@
 rnn/
 .DS_Store
 *.pyc
+*.icloud
 api/migrations/

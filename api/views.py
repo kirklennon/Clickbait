@@ -1,8 +1,8 @@
 from django.shortcuts import render
 
-from api.models import Paragraph, Source
+from api.models import Paragraph, Source, GeneratedParagraph
 
-queryset = Paragraph.objects.values().order_by('?')
+queryset = GeneratedParagraph.objects.values().order_by('?')
 
 def index(request):
     """View function for home page of site."""
@@ -25,7 +25,7 @@ import json
 
 def api(request):
     cleanlist = []
-    rawdata = serializers.serialize('python', Paragraph.objects.order_by('?')[:10])
+    rawdata = serializers.serialize('python', GeneratedParagraph.objects.order_by('?')[:10])
     for row in rawdata:
         cleanlist.append(row['fields']['text'])
     data = json.dumps(cleanlist)
